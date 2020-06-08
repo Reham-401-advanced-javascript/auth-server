@@ -7,7 +7,7 @@ In this app ,I will create an account and securely authenticate a user using the
 
  ## Links and Resources
  - [submission PR/lab-11](https://github.com/Reham-401-advanced-javascript/auth-server/pull/2)
- - [ci/cd](https://github.com/Reham-401-advanced-javascript/auth-server/runs/748769744)
+ - [ci/cd](https://github.com/Reham-401-advanced-javascript/auth-server/pull/2/checks?check_run_id=748848970)
  
  ## Documentaion
 
