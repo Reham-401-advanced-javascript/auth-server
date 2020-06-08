@@ -13,7 +13,7 @@ const app = express();
 
 // global middleware
 
-// app.use('/docs', express.static('./docs'));
+app.use('/docs', express.static('./public'));
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(cors());

@@ -17,5 +17,5 @@ describe('Auth Model',()=>{
       });
       
   });
-  
+
 });
