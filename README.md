@@ -6,8 +6,8 @@ Restricting access to information online is one of the foundational paradigms of
 In this app ,I will create an account and securely authenticate a user using their chosen username and password.
 
  ## Links and Resources
- - [submission PR/lab-11]()
- - [ci/cd]()
+ - [submission PR/lab-11](https://github.com/Reham-401-advanced-javascript/auth-server/pull/2)
+ - [ci/cd](https://github.com/Reham-401-advanced-javascript/auth-server/runs/748769744)
  
  ## Documentaion
 
@@ -39,4 +39,4 @@ In this app ,I will create an account and securely authenticate a user using the
 
 ## UML
 
-[UML Diagrame ](assest/)
+[UML Diagrame ](assest/lab-11.jpg)
