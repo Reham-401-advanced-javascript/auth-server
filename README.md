@@ -6,13 +6,14 @@ Restricting access to information online is one of the foundational paradigms of
 In this app ,I will create an account and securely authenticate a user using their chosen username and password.
 
  ## Links and Resources
- - [submission PR/lab-11](https://github.com/Reham-401-advanced-javascript/auth-server/pull/2)
- - [ci/cd](https://github.com/Reham-401-advanced-javascript/auth-server/pull/2/checks?check_run_id=748848970)
- 
- ## Documentaion
 
- - Create a single router module that will work for any data model, rather than having separate router modules for every data module.
- - Create a single “mongo” collection class that every data model can extend from, keeping the CRUD logic for our models  very DRY
+ - [submission PR/lab-11 ](https://github.com/Reham-401-advanced-javascript/auth-server/pull/2)
+ - [ci/cd ](https://github.com/Reham-401-advanced-javascript/auth-server/pull/2/checks?check_run_id=748848970)
+
+ ## Documentaion
+ - Create a POST route for `/signup`
+ - Create a POST route for `/signin`
+ - Create a GET route for `/users`
  
  ## Setup
 
