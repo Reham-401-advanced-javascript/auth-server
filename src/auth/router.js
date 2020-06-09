@@ -6,7 +6,17 @@ const oauth = require('./middleware/oauth.js');
 const users = require('./models/users-model.js');
 const router = express.Router();
 
-router.post('/signup', (req, res) => {
+// router.get('/',goToIndexPage);
+router.post('/signup',signup);
+router.post('/signin', basicAuth,signin);
+router.get('/users', basicAuth ,user);
+router.get('/oauth', oauth,oauthentication);
+
+// function goToIndexPage(req,res){
+//   res.redirect('../public/index.html');
+// }
+
+function signup(req,res){
   users
     .save(req.body)
     .then((user) => {
@@ -14,14 +24,17 @@ router.post('/signup', (req, res) => {
       res.json({ token });
     })
     .catch((err) => res.status(403).send(err.message));
-});
-router.post('/signin', basicAuth, (req, res) => {
+}
+
+function signin (req,res){
   res.json({ token: req.token });
-});
-router.get('/users', basicAuth, (req, res) => {
+}
+function user(req,res){
   res.json(users.list());
-});
-router.get('/oauth', oauth, (req, res) => {
+
+}
+function oauthentication(req,res){
   res.json({ token: req.token  , user:req.user});
-});
+
+}
 module.exports = router;

@@ -15,17 +15,14 @@ module.exports = (req, res, next) => {
     next('Invalid Login');
   } else {
     // user:pass
-    console.log('aaaaaaaaaaaaaaaaaaaaaaaaaa', req.headers);
     const basic = req.headers.authorization.split(' ').pop(); // ["Basic","m4e321$342"]
     console.log('basic', basic);
-    console.log('mmmmmmmmmmmmm',base64.decode(basic).split(':'));
     const [user, pass] = base64.decode(basic).split(':'); // "mahmoud:1234"
     console.log('__BasicAuth__', user, pass);
     users
       .authenticateBasic(user, pass)
       .then((validUser) => {
         req.token = users.generateToken(validUser);
-        console.log('tooooooken',req.token);
         next();
       })
       .catch((err) => next(err));

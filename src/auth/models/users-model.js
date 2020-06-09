@@ -5,26 +5,15 @@ require('dotenv').config();
 const bcrypt = require('bcryptjs');
 
 const jwt = require('jsonwebtoken');
-const mongoose = require('mongoose');
+const db = require('./user-schema.js');
+
 
 const SECRET = process.env.SECRET || 'mysecret';
-// const db = {};
 const Users = {};
 
-const db = new mongoose.Schema({
-  username: {type: String, required: true},
-  password: {type: String, required: true},
-});
-/*
-  db
-  {
-    'mahmoud':{
-      username:"mahmoud",
-      password:"jkabndajnsdjkasndkjlasndasjndasjkdn;asjkndajksndasjnd"
-    }
-  }
- */
+
 //signup
+
 Users.save = async function (record) {
   /**
    * record
