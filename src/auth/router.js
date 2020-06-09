@@ -2,23 +2,21 @@
 const express = require('express');
 const basicAuth = require('./middleware/basic.js');
 const oauth = require('./middleware/oauth.js');
+// const bearerOauth = require('./middleware/bearer.js');
 
 const users = require('./models/users-model.js');
 const router = express.Router();
 
-// router.get('/',goToIndexPage);
 router.post('/signup',signup);
 router.post('/signin', basicAuth,signin);
 router.get('/users', basicAuth ,user);
 router.get('/oauth', oauth,oauthentication);
+// router.get('/user', bearerOauth ,bearerauth);
 
-// function goToIndexPage(req,res){
-//   res.redirect('../public/index.html');
-// }
 
 function signup(req,res){
   users
-    .save(req.body)
+    .saveUser(req.body)
     .then((user) => {
       const token = users.generateToken(user);
       res.json({ token });
@@ -29,12 +27,16 @@ function signup(req,res){
 function signin (req,res){
   res.json({ token: req.token });
 }
-function user(req,res){
-  res.json(users.list());
+async function user(req,res){
+  res.json(await users.list());
 
 }
 function oauthentication(req,res){
   res.json({ token: req.token  , user:req.user});
 
 }
+// function bearerauth(req,res){
+//   res.json(req.user);
+
+// }
 module.exports = router;

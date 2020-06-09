@@ -1,4 +1,4 @@
-# LAB - Class 10:  OAuth Server
+# LAB - Class 13:  Bearer Authorization
 ### Author: Reham Omar AL-Sobh
 
 Restricting access to information online is one of the foundational paradigms of the internet. Whether it's your online bank account, facebook profile, or a one-time viewing of a document to sign, getting "logged in" to a website is an everday activity for almost every internet user.
@@ -7,8 +7,10 @@ In this app ,I will create an account and securely authenticate a user using the
 
  ## Links and Resources
 
- - [submission PR/lab-11 ](https://github.com/Reham-401-advanced-javascript/auth-server/pull/2)
- - [submission PR/lab-12 ](https://github.com/Reham-401-advanced-javascript/auth-server/pull/4)
+ - [submission PR/lab-11 ](https://github.com/Reham-401-advanced-javascript/auth-server/pull/5)
+ - [submission PR/lab-12 ](https://github.com/Reham-401-advanced-javascript/auth-server/pull/6)
+ - [submission PR/lab-13 ](https://github.com/Reham-401-advanced-javascript/auth-server/pull/7)
+
 
  - [ci/cd ](https://github.com/Reham-401-advanced-javascript/auth-server/pull/2/checks?check_run_id=748848970)
  - [heroku ](https://reham-auth-server.herokuapp.com/docs)
@@ -16,11 +18,7 @@ In this app ,I will create an account and securely authenticate a user using the
 
  ## Documentaion
 
- In Phase 2, we will need to manage 3 primary actions that must happen in sequence
-
- 1. Authenticate users using OAuth
- 2. Following authentication manage the user account
- 3. Provide an access token
+ In Phase 3,made any user with a valid token (retrieved from either Basic Authentication or OAuth) is able to use that token to login to the system and potentially access protected routes
 
  - Create a POST route for `/signup`
  - Create a POST route for `/signin`
