@@ -13,7 +13,7 @@ describe('Auth Model',()=>{
     return  mockRequest.post('/signup')
       .send(obj)
       .then(result=>{
-        console.log('signup',result.body);
+        // console.log('signup',result.body);
         expect(result.status).toEqual(200);
         expect(typeof result.body.token).toEqual('string');
 
@@ -36,13 +36,15 @@ describe('Auth Model',()=>{
     };
     // let header2=header.headers;
     let header3=base64.encode(header.headers.authorization);
-    console.log('cccccccccccc',header3);
+    // console.log('cccccccccccc',header3);
 
     return mockRequest.post('/signin').set({'authorization':header3})
       .send(obj)
       .then(data=>{
-        console.log('nnnnnnnnnnnnn',data.body);
+        // console.log('nnnnnnnnnnnnn',data.body);
         expect(data.status).toEqual(200);
+        expect(typeof data.body.token).toEqual('string');
+
       });
       
   });
@@ -61,8 +63,11 @@ describe('Auth Model',()=>{
     return mockRequest.get('/users').set({'authorization':header3})
       .send(obj)
       .then(data=>{
-        // console.log('44444444444444',data.body);
+        // console.log('44444444444444',data.body[0].username);
+        // console.log('55555555555555',obj.username);
+
         expect(data.status).toEqual(200);
+        expect(data.body[0].username).toEqual(obj.username);
       });
       
   });
