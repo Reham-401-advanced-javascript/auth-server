@@ -10,7 +10,7 @@ class Model {
   constructor(schema) {
     this.schema = schema;
   }
-
+  
   async saveUser(record) {
     // console.log('reeeeeeecoord',record);
     let db =await this.schema.find({ username: record.username } );
