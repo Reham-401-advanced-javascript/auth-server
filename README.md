@@ -13,7 +13,7 @@ In this app ,I will create an account and securely authenticate a user using the
 
 
  - [ci/cd ](https://github.com/Reham-401-advanced-javascript/auth-server/pull/2/checks?check_run_id=748848970)
- - [heroku ](https://reham-auth-server.herokuapp.com/docs)
+ - [heroku ](https://reham-auth-server.herokuapp.com)
 
 
  ## Documentaion
@@ -24,7 +24,6 @@ In this app ,I will create an account and securely authenticate a user using the
  - Create a POST route for `/signin`
  - Create a GET route for `/users`
  - Create a GET route for `/oauth`
- - use `/docs`to go to index.html file
  
  ## Setup
 
