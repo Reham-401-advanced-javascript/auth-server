@@ -58,7 +58,7 @@ async function getUser(remoteUser) {
     username: remoteUser.login,
     password: 'Rehaaaam', 
   };
-  const user = await users.find(userRecord);
+  const user = await users.find({username:userRecord.username});
   if(user!==[]){
     const token = users.generateToken(user);
     return [user[0], token];
