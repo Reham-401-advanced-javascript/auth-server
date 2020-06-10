@@ -24,6 +24,7 @@ In this app ,I will create an account and securely authenticate a user using the
  - Create a POST route for `/signin`
  - Create a GET route for `/users`
  - Create a GET route for `/oauth`
+ - Create a GET route for `/secret`
  
  ## Setup
 
