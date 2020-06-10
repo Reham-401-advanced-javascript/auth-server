@@ -33,10 +33,28 @@ class Model {
   }
 
   generateToken (user) {
-    const token = jwt.sign({ username: user.username }, SECRET);
+    const token = jwt.sign({ username: user.username }, SECRET,{expiresIn:60*15});//{expiresIn:60*15 to convert 15 min to second}
     return token;
   }
 
+  async authenticateToken (token) {
+    console.log('ttttttttttttoken',token);
+    // akjsndlaksnd.34naliendiasnd.3nksabndfw334ng
+    try {
+      const tokenObject = await jwt.verify(token, SECRET);
+      console.log('toooooooookenobject',tokenObject);
+      // tokenObject = {username:"mahmoud",iat:91223238}
+      
+      if (tokenObject.username) {
+        return Promise.resolve(tokenObject);
+      } else {
+        return Promise.reject('User is not found!');
+      }
+    } catch (e) {
+      return Promise.reject(e.message);
+    }
+  }
+  
   async list() {
     console.log('liiiiiiiiiiiist',await this.schema.find({ }));
 
