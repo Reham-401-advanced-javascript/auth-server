@@ -2,7 +2,7 @@
 const express = require('express');
 const basicAuth = require('./middleware/basic.js');
 const oauth = require('./middleware/oauth.js');
-// const bearerOauth = require('./middleware/bearer.js');
+const bearerOauth = require('./middleware/bearer.js');
 
 const users = require('./models/users-model.js');
 const router = express.Router();
@@ -11,7 +11,7 @@ router.post('/signup',signup);
 router.post('/signin', basicAuth,signin);
 router.get('/users', basicAuth ,user);
 router.get('/oauth', oauth,oauthentication);
-// router.get('/user', bearerOauth ,bearerauth);
+router.get('/secret', bearerOauth ,bearerauth);
 
 
 function signup(req,res){
@@ -35,8 +35,8 @@ function oauthentication(req,res){
   res.json({ token: req.token  , user:req.user});
 
 }
-// function bearerauth(req,res){
-//   res.json(req.user);
+function bearerauth(req,res){
+  res.json(req.user);
 
-// }
+}
 module.exports = router;
