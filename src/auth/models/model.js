@@ -4,7 +4,11 @@ require('dotenv').config();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET || 'mysecret';
-
+const capabilities = {
+  user: ['read'],
+  editor: ['read', 'create', 'update'],
+  admin: ['read', 'create', 'update', 'delete'],
+};
 
 class Model {
   constructor(schema) {
@@ -27,13 +31,14 @@ class Model {
   }
   async authenticateBasic (user, pass) {
     let userInfo = await this.schema.find({username : user});
-    console.log('useeeeeeeeeeeeeeer',userInfo);
+    // console.log('useeeeeeeeeeeeeeer',userInfo);
     const valid = await bcrypt.compare(pass, userInfo[0].password);
     return valid ? userInfo: Promise.reject('wrong password');
   }
 
   generateToken (user) {
-    const token = jwt.sign({ username: user.username }, SECRET,{expiresIn:60*15});//{expiresIn:60*15 to convert 15 min to second}
+    const userData = { username: user.username, capabilities: user.role };
+    const token = jwt.sign(userData, SECRET,{expiresIn:60*15});//{expiresIn:60*15 to convert 15 min to second}
     return token;
   }
 
