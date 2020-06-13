@@ -46,25 +46,26 @@ async function exchangeCodeForToken(code) {
 }
 
 async function getRemoteUserInfo(token) {
-  const userResponse = await superagent
+  let userResponse = await superagent
     .get(remoteAPI)
     .set('Authorization', `token ${token}`)
     .set('user-agent', 'express-app');
-  const user = userResponse.body;
+  let user = userResponse.body;
   return user;
 }
 async function getUser(remoteUser) {
+  console.log('iiiiiiiiiiiiii',remoteUser);
   const userRecord = {
     username: remoteUser.login,
     password: 'Rehaaaam', 
   };
   const user = await users.schema.find({username:userRecord.username});
   if(user!==[]){
-    const token = users.generateToken(user);
-    return [user[0], token];
+    let token = users.generateToken(user);
+    return [user, token];
   }else{
-    const user = await users.schema.save(userRecord);
-    const token = users.generateToken(user);
+    let user = await users.schema.save(userRecord);
+    let token = users.generateToken(user);
     return [user, token];
 
   }
