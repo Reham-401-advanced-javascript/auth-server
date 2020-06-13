@@ -59,6 +59,7 @@ async function getUser(remoteUser) {
     username: remoteUser.login,
     password: 'Rehaaaam', 
   };
+  console.log('userrecord',userRecord.username);
   const user = await users.schema.find({username:userRecord.username});
   console.log('uuuuuuuuuuuser',user);
   if(user!==[]){
