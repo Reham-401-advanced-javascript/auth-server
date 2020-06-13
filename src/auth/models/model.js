@@ -61,20 +61,14 @@ class Model {
   generateToken (user) {
     if(user.username){
 
-      // console.log('useeeeeeeeeeeeeeerin generate token1111',user );
       let capabilities= this.capability(user.role);
       const userData = { username: user.username, role: user.role ,capabilities: capabilities };
-      // console.log('userDataaaaaaaaaaaaa generate token222',userData );
-  
       const token = jwt.sign(userData, SECRET,{expiresIn:60*15});//{expiresIn:60*15 to convert 15 min to second}
       return token;
     }else{
-      // console.log('useeeeeeeeeeeeeeerin generate token3333',user );
       let capabilities= this.capability(user[0].role);
       const userData = { username: user[0].username, role: user[0].role ,capabilities: capabilities };
-      // console.log('userDataaaaaaaaaaaaa generate token4444',userData );
-  
-      const token = jwt.sign(userData, SECRET,{expiresIn:60*15});//{expiresIn:60*15 to convert 15 min to second}
+      const token = jwt.sign(userData, SECRET,{expiresIn:60*15});
       return token;
     }
   }
