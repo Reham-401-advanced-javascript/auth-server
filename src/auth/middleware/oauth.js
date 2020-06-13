@@ -60,6 +60,7 @@ async function getUser(remoteUser) {
     password: 'Rehaaaam', 
   };
   const user = await users.schema.find({username:userRecord.username});
+  console.log('uuuuuuuuuuuser',user);
   if(user!==[]){
     let token = users.generateToken(user);
     console.log('1111uuuuser',user,'toooooooooooooken',token);
