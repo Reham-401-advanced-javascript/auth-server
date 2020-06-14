@@ -11,6 +11,8 @@ router.put('/change', bearerAuth,permissions ('update' ), aclFunction);
 router.delete('/remove', bearerAuth,permissions('delete' ), aclFunction);
 
 function bearerauth(req,res){
+  console.log('req.user',req.user);
+  
   res.json(req.user);
   
 }
