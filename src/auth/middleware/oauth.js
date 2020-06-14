@@ -68,24 +68,3 @@ async function getUser(remoteUser) {
   
 }
 
-// async function getUser(remoteUser) {
-//   console.log('iiiiiiiiiiiiii',remoteUser);
-//   const userRecord = {
-//     username: remoteUser.login,
-//     password: 'Rehaaaam', 
-//   };
-//   console.log('userrecord',userRecord.username);
-//   const user = await users.schema.find({username:userRecord.username});
-//   console.log('uuuuuuuuuuuser',user);
-//   if(user!==[]){
-//     let token = users.generateToken(user);
-//     console.log('1111uuuuser',user,'toooooooooooooken',token);
-//     return [user, token];
-//   }else{
-//     let user = await users.saveUser(userRecord);
-//     let token = users.generateToken(user);
-//     console.log('2222uuuuser',user,'toooooooooooooken',token);
-
-//     return [user, token];
-
-//   }
