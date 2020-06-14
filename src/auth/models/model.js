@@ -62,7 +62,7 @@ class Model {
     console.log('user iin generate token',user);
     console.log('user.username iin generate tooooooken',user.username);
 
-    if(user.username){
+    if(user){
 
       let capabilities= this.capability(user.role);
       const userData = { username: user.username,capabilities: capabilities };
