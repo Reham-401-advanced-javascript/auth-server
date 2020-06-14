@@ -31,7 +31,9 @@ async function user(req,res){
 }
 function oauthentication(req,res){
   console.log('ooooooooauth',req.token);
-  res.json({ token: req.token  , user:req.user});
+  // res.json({ token: req.token  , user:req.user});
+  res.json('kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk');
+
 }
 
 module.exports = router;
