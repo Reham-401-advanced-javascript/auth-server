@@ -31,8 +31,7 @@ async function user(req,res){
 }
 function oauthentication(req,res){
   console.log('ooooooooauth',req.token);
-  // res.json({ token: req.token  , user:req.user});
-  res.json('kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk');
+  res.json({ token: req.token  , user:req.user});
 
 }
 
